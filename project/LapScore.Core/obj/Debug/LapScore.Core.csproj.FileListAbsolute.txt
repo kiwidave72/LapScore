@@ -1,0 +1,4 @@
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core\bin\Debug\LapScore.Core.dll
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core\bin\Debug\LapScore.Core.pdb
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core\obj\Debug\LapScore.Core.dll
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core\obj\Debug\LapScore.Core.pdb

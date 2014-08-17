@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="c49e4e36-f09e-4fb6-8111-ff3966d8efd0" name="Dave@MATRIXVI 2014-08-17 14:49:16" runUser="MatrixVI\Dave" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bbec8b32-9d77-4486-9806-5b5b92af14d1">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Dave_MATRIXVI 2014-08-17 14_49_16">
+      <DeploymentItem filename="C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core\bin\Debug\LapScore.Core.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-08-17T14:49:16.1334908+12:00" queuing="2014-08-17T14:49:22.0958318+12:00" start="2014-08-17T14:49:22.3958490+12:00" finish="2014-08-17T14:50:12.4047093+12:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="MATRIXVI" outcome="Error" timestamp="2014-08-17T14:50:12.3977089+12:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\users\dave\documents\git work\lapscore\project\lapscore.core.test\bin\debug\lapscore.core.test.dll" id="e239b03d-58a6-e651-84fe-f2308144f2cc">
+      <Execution id="a77b777a-7441-46ce-8978-3542712df5e3" />
+      <TestMethod codeBase="C:/Users/Dave/Documents/Git Work/LapScore/project/LapScore.Core.Test/bin/Debug/LapScore.Core.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="LapScore.Core.Test.About_LapRegistrationMessage, LapScore.Core.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="e239b03d-58a6-e651-84fe-f2308144f2cc" executionId="a77b777a-7441-46ce-8978-3542712df5e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="a77b777a-7441-46ce-8978-3542712df5e3" testId="e239b03d-58a6-e651-84fe-f2308144f2cc" testName="TestMethod1" computerName="MATRIXVI" duration="00:00:49.7788472" startTime="2014-08-17T14:49:22.6258621+12:00" endTime="2014-08-17T14:50:12.4047093+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a77b777a-7441-46ce-8978-3542712df5e3">
+    </UnitTestResult>
+  </Results>
+</TestRun>
