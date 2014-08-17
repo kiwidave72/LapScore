@@ -1,0 +1,10 @@
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\bin\Debug\LapScore.CommandLine.exe
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\bin\Debug\LapScore.CommandLine.pdb
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\bin\Debug\LapScore.Core.dll
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\bin\Debug\LapScore.Core.pdb
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\obj\x86\Debug\LapScore.CommandLine.csprojResolveAssemblyReference.cache
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\obj\x86\Debug\LapScore.CommandLine.exe
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\obj\x86\Debug\LapScore.CommandLine.pdb
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\bin\Debug\LapScore.CommandLine.exe.config
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\bin\Debug\MDSCommonLib.dll
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.CommandLine\bin\Debug\log4net.dll

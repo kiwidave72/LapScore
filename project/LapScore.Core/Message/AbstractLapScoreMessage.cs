@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LapScore.Core.Interfaces;
+using System.Xml.Linq;
 
 namespace LapScore.Core.Message
 {
@@ -14,10 +15,10 @@ namespace LapScore.Core.Message
         private T _PayLoad;
 
         public  AbstractLapScoreMessage(Guid TrustedAccountID)
-        {
+        {    
             _TrustedAccountID = TrustedAccountID ;
             _DateTimeStampUTC = DateTime.UtcNow;
-            _ID = new Guid();
+            _ID = Guid.NewGuid();
         }
 
 
@@ -53,5 +54,8 @@ namespace LapScore.Core.Message
         }
 
         #endregion
+
+
+
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LapScore.Core.Interfaces;
+using System.Xml.Linq;
 
 namespace LapScore.Core.Message.Payload
 {
@@ -40,5 +41,7 @@ namespace LapScore.Core.Message.Payload
 
 
         #endregion
+
+      
     }
 }

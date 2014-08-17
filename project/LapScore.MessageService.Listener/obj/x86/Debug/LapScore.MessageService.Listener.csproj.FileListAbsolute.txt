@@ -1,0 +1,10 @@
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\obj\x86\Debug\LapScore.MessageService.Listener.csprojResolveAssemblyReference.cache
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\bin\Debug\LapScore.MessageService.Listener.exe.config
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\bin\Debug\LapScore.MessageService.Listener.exe
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\bin\Debug\LapScore.MessageService.Listener.pdb
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\bin\Debug\LapScore.Core.dll
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\bin\Debug\log4net.dll
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\bin\Debug\MDSCommonLib.dll
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\bin\Debug\LapScore.Core.pdb
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\obj\x86\Debug\LapScore.MessageService.Listener.exe
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.MessageService.Listener\obj\x86\Debug\LapScore.MessageService.Listener.pdb

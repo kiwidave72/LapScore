@@ -1,7 +1,7 @@
 C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\bin\Debug\LapScore.Core.Test.dll
 C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\bin\Debug\LapScore.Core.Test.pdb
-C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\obj\Debug\LapScore.Core.Test.dll
-C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\obj\Debug\LapScore.Core.Test.pdb
 C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\bin\Debug\LapScore.Core.dll
 C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\bin\Debug\LapScore.Core.pdb
 C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\obj\Debug\LapScore.Core.Test.csprojResolveAssemblyReference.cache
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\obj\Debug\LapScore.Core.Test.dll
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core.Test\obj\Debug\LapScore.Core.Test.pdb
