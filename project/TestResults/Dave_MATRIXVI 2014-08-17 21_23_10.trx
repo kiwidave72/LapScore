@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="1826c255-e5a1-4efe-a763-b557a9530b32" name="Dave@MATRIXVI 2014-08-17 21:23:10" runUser="MatrixVI\Dave" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bbec8b32-9d77-4486-9806-5b5b92af14d1">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Dave_MATRIXVI 2014-08-17 21_23_10">
+      <DeploymentItem filename="C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.Core\bin\Debug\LapScore.Core.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-08-17T21:23:10.1642800+12:00" queuing="2014-08-17T21:23:14.7095400+12:00" start="2014-08-17T21:23:15.3515767+12:00" finish="2014-08-17T21:23:16.3406333+12:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="can_create_recordmessage" storage="c:\users\dave\documents\git work\lapscore\project\lapscore.core.test\bin\debug\lapscore.core.test.dll" id="bf4195c1-d4a8-f7fa-9197-a9531bb7067e">
+      <Execution id="9027b999-9ea0-4575-8bba-634db22d81db" />
+      <TestMethod codeBase="C:/Users/Dave/Documents/Git Work/LapScore/project/LapScore.Core.Test/bin/Debug/LapScore.Core.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="LapScore.Core.Test.About_RecordMessage, LapScore.Core.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="can_create_recordmessage" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="bf4195c1-d4a8-f7fa-9197-a9531bb7067e" executionId="9027b999-9ea0-4575-8bba-634db22d81db" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="9027b999-9ea0-4575-8bba-634db22d81db" testId="bf4195c1-d4a8-f7fa-9197-a9531bb7067e" testName="can_create_recordmessage" computerName="MATRIXVI" duration="00:00:00.0208733" startTime="2014-08-17T21:23:15.5915904+12:00" endTime="2014-08-17T21:23:16.2186263+12:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9027b999-9ea0-4575-8bba-634db22d81db">
+    </UnitTestResult>
+  </Results>
+</TestRun>

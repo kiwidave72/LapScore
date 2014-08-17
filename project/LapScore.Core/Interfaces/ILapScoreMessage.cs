@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using LapScore.Core.Interfaces;
 
-namespace LapScore.Core
+namespace LapScore.Core.Interfaces
 {
     interface ILapScoreMessage
     {

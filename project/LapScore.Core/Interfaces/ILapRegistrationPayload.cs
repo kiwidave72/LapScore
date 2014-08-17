@@ -1,5 +1,5 @@
 ﻿using System;
-namespace LapScore.Core.Message.Payload
+namespace LapScore.Core.Interfaces
 {
     interface ILapRegistrationPayload
     {

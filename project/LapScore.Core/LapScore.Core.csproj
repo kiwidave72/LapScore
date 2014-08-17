@@ -45,8 +45,10 @@
     <Compile Include="Message\AbstractLapScoreMessage.cs" />
     <Compile Include="Interfaces\ILapRegistration.cs" />
     <Compile Include="Message\LapRegistrationMessage.cs" />
-    <Compile Include="Message\Payload\ILapRegistrationPayload.cs" />
+    <Compile Include="Interfaces\ILapRegistrationPayload.cs" />
     <Compile Include="Message\Payload\LapRegistrationPayload.cs" />
+    <Compile Include="Message\Payload\RecordMessagePayload.cs" />
+    <Compile Include="Message\RecordMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

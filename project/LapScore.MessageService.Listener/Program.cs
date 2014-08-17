@@ -11,15 +11,7 @@ namespace LapScore.MessageService.Listener
         static void Main(string[] args)
         {
 
-            //while (true)
-            //{
-            //    //Get a message from user
-            //    var messageText = Console.ReadKey();
-            //    if (messageText.Key == ConsoleKey.Q)
-            //    {
-            //        break;
-            //    }
-            //}
+             
 
 
             //Create MDSClient object to connect to DotNetMQ
@@ -53,6 +45,8 @@ namespace LapScore.MessageService.Listener
             //Acknowledge that message is properly handled
             //and processed. So, it will be deleted from queue.
             e.Message.Acknowledge();
+            
+            
         }
     }
 }

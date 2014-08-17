@@ -61,7 +61,7 @@ namespace LapScore.Core.Test
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void can_create_lapregistrationmessage()
         {
             Guid testAccount = Guid.NewGuid();
             DateTime laptime = DateTime.UtcNow;

@@ -13,23 +13,27 @@ namespace LapScore.Core.Message
         {
             this.Payload  = new LapRegistrationPayload(TransponderNumber,CarNumber,DateTimeStampUTC);
         }
-           public  XDocument AsXml()
+        public  XDocument AsXml()
         {
 
             string xml = @"
-<Message>
-<ID>{0}</ID>
-<DateTimeStamp>{1}</DateTimeStamp>
-<Ticks>{2}</Ticks>
-<Payload>
-<TransponderNumber>{3}</TransponderNumber>
-<CarNumber>{4}</CarNumber>
-</Payload>
-</Message>
-";
-
-
-            return XDocument.Parse(string.Format(xml,this.ID,this.DateTimeStampUTC,this.Payload.DateTimeStampUTC.Ticks ,this.Payload.TransponderNumber,this.Payload.CarNumber));
+            <Message>
+            <ID>{0}</ID>
+            <DateTimeStamp>{1}</DateTimeStamp>
+            <Ticks>{2}</Ticks>
+            <Payload>
+            <TransponderNumber>{3}</TransponderNumber>
+            <CarNumber>{4}</CarNumber>
+            </Payload>
+            </Message>
+            ";
+            return XDocument.Parse(string.Format(xml,
+                    this.ID,
+                    this.DateTimeStampUTC,
+                    this.Payload.DateTimeStampUTC.Ticks ,
+                    this.Payload.TransponderNumber,
+                    this.Payload.CarNumber
+                    ));
         }
 
     }
