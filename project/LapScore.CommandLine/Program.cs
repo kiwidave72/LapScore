@@ -18,7 +18,12 @@ namespace LapScore.CommandLine
 
         static void Main(string[] args)
         {
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+
             bool _IsRecording = false;
+            string _Title = @"Lap Score v0.1";
 
             //Create MDSClient object to connect to DotNetMQ
             //Name of this application: Application1
@@ -31,11 +36,26 @@ namespace LapScore.CommandLine
 
             while (true)
             {
-                if(_IsRecording)
-                    Console.WriteLine("Lap Score Running...Recording");
+                if (_IsRecording)
+                {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.Write(_Title + "...");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Recording");
+                }
                 else
-                    Console.WriteLine("Lap Score Running...Not Recording");
-                
+                {
+                    Console.BackgroundColor= ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.Write(_Title + "...");
+                    Console.WriteLine("Not Recording");
+                }
+
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.WriteLine("Commands are.......");
                 Console.WriteLine("Press (R) to record.");
                 Console.WriteLine("Press (Q) to quite.");
                 Console.WriteLine("Press (0-9) for car numbers.");
@@ -49,7 +69,7 @@ namespace LapScore.CommandLine
                 }
                 else if (keypress.Key == ConsoleKey.R)
                 {
-                    _IsRecording = true;
+                    _IsRecording = !_IsRecording;
                 }
                 else if ((keypress.KeyChar >= 48) && (keypress.KeyChar <= 58))
                 {
