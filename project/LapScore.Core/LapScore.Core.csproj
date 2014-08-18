@@ -49,6 +49,7 @@
     <Compile Include="Message\Payload\LapRegistrationPayload.cs" />
     <Compile Include="Message\Payload\RecordMessagePayload.cs" />
     <Compile Include="Message\RecordMessage.cs" />
+    <Compile Include="Model\Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

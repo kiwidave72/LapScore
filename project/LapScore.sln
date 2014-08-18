@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LapScore.CommandLine", "Lap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LapScore.MessageService.Listener", "LapScore.MessageService.Listener\LapScore.MessageService.Listener.csproj", "{DB223E82-6BEB-4308-9B99-5AAFC3911115}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LapScore.Server", "LapScore.Server\LapScore.Server.csproj", "{97234DDB-5DD0-4657-8562-3214FDB1D3B4}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = LapScore.vsmdi
@@ -69,6 +71,16 @@ Global
 		{DB223E82-6BEB-4308-9B99-5AAFC3911115}.Release|Mixed Platforms.Build.0 = Release|x86
 		{DB223E82-6BEB-4308-9B99-5AAFC3911115}.Release|x86.ActiveCfg = Release|x86
 		{DB223E82-6BEB-4308-9B99-5AAFC3911115}.Release|x86.Build.0 = Release|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Debug|x86.ActiveCfg = Debug|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Debug|x86.Build.0 = Debug|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Release|Any CPU.ActiveCfg = Release|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Release|Mixed Platforms.Build.0 = Release|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Release|x86.ActiveCfg = Release|x86
+		{97234DDB-5DD0-4657-8562-3214FDB1D3B4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

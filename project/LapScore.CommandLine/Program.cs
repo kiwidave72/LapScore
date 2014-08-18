@@ -78,7 +78,7 @@ namespace LapScore.CommandLine
                     DateTime laptime = DateTime.UtcNow;
                     LapRegistrationMessage newMessage = new LapRegistrationMessage(testAccount, "111111", carNumber, laptime);
                     SendMessage(mdsClient, "LapScore.MessageService.Listener", newMessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.NonPersistent);
-                    SendMessage(mdsClient, "LapScore.MessageService.Server", newMessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
+                    SendMessage(mdsClient, "LapScore.Server", newMessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
 
                     if (_IsRecording)
                     {
