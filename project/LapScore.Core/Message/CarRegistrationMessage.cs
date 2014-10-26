@@ -27,7 +27,27 @@ namespace LapScore.Core.Message
             base.Init(TrustedAccount);
             this.Payload.Init(Car);
         }
-        
+
+        public XDocument AsXml()
+        {
+
+            string xml = @"
+            <CarRegistrationMessage>
+            <ID>{0}</ID>
+            <DateTimeStamp>{1}</DateTimeStamp>
+            <Payload>
+                <Name>{2}</Name>
+                <Car><Number>{3}</Number></Car>
+            </Payload>
+            </CarRegistrationMessage>
+            ";
+            return XDocument.Parse(string.Format(xml,
+                    this.ID,
+                    this.DateTimeStampUTC,
+                    this.Payload.Car.Driver.Name,
+                    this.Payload.Car.Number
+                    ));
+        }
 
     }
 }
