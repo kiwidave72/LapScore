@@ -5,6 +5,7 @@ using System.Text;
 
 namespace LapScore.Core.Model
 {
+    [Serializable]
     public sealed class Driver
     {
 

@@ -66,7 +66,8 @@ namespace LapScore.Core.Test
             Guid testAccount = Guid.NewGuid();
             DateTime laptime = DateTime.UtcNow;
 
-            LapRegistrationMessage newMessage = new LapRegistrationMessage(testAccount,"111111",0,laptime);
+            LapRegistrationMessage newMessage = new LapRegistrationMessage();
+            newMessage.Init(testAccount,"111111",0,laptime);
 
             Assert.AreEqual(newMessage.Payload.Name, "LapRegistrationPayload");
             Assert.AreEqual(testAccount, newMessage.TrustedAccountID);

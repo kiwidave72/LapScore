@@ -14,13 +14,17 @@ namespace LapScore.Core.Message
         private Guid _TrustedAccountID;
         private T _PayLoad;
 
-        public  AbstractLapScoreMessage(Guid TrustedAccountID)
-        {    
-            _TrustedAccountID = TrustedAccountID ;
+        //public  AbstractLapScoreMessage(Guid TrustedAccountID)
+        //{    
+        //}
+
+        public void Init(Guid TrustedAccountID)
+        {
+            _TrustedAccountID = TrustedAccountID;
             _DateTimeStampUTC = DateTime.UtcNow;
             _ID = Guid.NewGuid();
-        }
 
+        }
 
         #region ILapScoreMessage Members
 

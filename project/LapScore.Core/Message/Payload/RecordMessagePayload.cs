@@ -6,9 +6,9 @@ using LapScore.Core.Interfaces;
 
 namespace LapScore.Core.Message.Payload
 {
-    public sealed class RecordMessagePayload:  IMessagePayload
+    public sealed class QuitMessagePayload:  IMessagePayload
     {
-        private string _Name = "RecordMessagePayload";
+        private string _Name = "QuitMessagePayload";
 
         #region IMessagePayload Members
 

@@ -10,8 +10,10 @@ namespace LapScore.Core.Message
     public sealed class RecordMessage : AbstractLapScoreMessage<RecordMessagePayload>
     {
 
-        public RecordMessage(Guid TrustedAccountID) : base(TrustedAccountID) 
+        public void Init(Guid TrustedAccountID) 
         {
+            base.Init(TrustedAccountID) ;
+
             this.Payload = new RecordMessagePayload();
 
         }
@@ -20,12 +22,12 @@ namespace LapScore.Core.Message
         {
 
             string xml = @"
-            <Message>
+            <RecordMessage>
             <ID>{0}</ID>
             <DateTimeStamp>{1}</DateTimeStamp>
             <Payload>
             </Payload>
-            </Message>
+            </RecordMessage>
             ";
             return XDocument.Parse(string.Format(xml,
                     this.ID,

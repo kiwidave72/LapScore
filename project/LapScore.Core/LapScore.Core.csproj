@@ -44,11 +44,16 @@
     <Compile Include="Interfaces\IMessagePayload.cs" />
     <Compile Include="Message\AbstractLapScoreMessage.cs" />
     <Compile Include="Interfaces\ILapRegistration.cs" />
+    <Compile Include="Message\CarRegistrationMessage.cs" />
+    <Compile Include="Message\Payload\QuiteMessagePayload.cs" />
+    <Compile Include="Message\QuitMessage.cs" />
     <Compile Include="Message\LapRegistrationMessage.cs" />
     <Compile Include="Interfaces\ILapRegistrationPayload.cs" />
+    <Compile Include="Message\Payload\CarRegistrationPayload.cs" />
     <Compile Include="Message\Payload\LapRegistrationPayload.cs" />
     <Compile Include="Message\Payload\RecordMessagePayload.cs" />
     <Compile Include="Message\RecordMessage.cs" />
+    <Compile Include="Model\Car.cs" />
     <Compile Include="Model\Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

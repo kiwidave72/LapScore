@@ -8,6 +8,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
+using LapScore.Core.Model;
+using System.Xml;
+using System.Threading;
 
 namespace LapScore.CommandLine
 {
@@ -18,6 +21,7 @@ namespace LapScore.CommandLine
 
         static void Main(string[] args)
         {
+            Thread.Sleep(1000);
 
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
@@ -61,22 +65,78 @@ namespace LapScore.CommandLine
                 Console.WriteLine("Press (0-9) for car numbers.");
 
 
+                Car car = new Car
+                {
+                    Driver = new Driver { 
+                    Name="David"
+                    },
+                    Number=1,
+                    Transponder="123121"
+
+                };
+
+                Car car1 = new Car
+                {
+                    Driver = new Driver
+                    {
+                        Name = "Ed"
+                    },
+                    Number = 2,
+                    Transponder = "123121"
+
+                };
+
+
+                CarRegistrationMessage carmessage = new CarRegistrationMessage();
+                carmessage.Init(testAccount,car);
+
+
+                System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(carmessage.GetType());
+                StringWriter writer = new StringWriter();
+                x.Serialize(writer , carmessage);
+
+                SendMessage(mdsClient, "LapScore.MessageService.Listener",writer.ToString() , MDS.Communication.Messages.MessageTransmitRules.NonPersistent);
+                SendMessage(mdsClient, "LapScore.Server", writer.ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
+
+
+
+
                 var keypress = Console.ReadKey();
                 //Get a message from user
                 if (keypress.Key == ConsoleKey.Q)
                 {
+                    QuitMessage record = new QuitMessage();
+                    record.Init(testAccount);
+                    x = new System.Xml.Serialization.XmlSerializer(record.GetType());
+                    writer = new StringWriter();
+                    x.Serialize(writer, record);
+
+                    SendMessage(mdsClient, "LapScore.MessageService.Listener", writer.ToString(), MDS.Communication.Messages.MessageTransmitRules.NonPersistent);
+                    SendMessage(mdsClient, "LapScore.Server", writer.ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
+
                     break;
                 }
                 else if (keypress.Key == ConsoleKey.R)
                 {
+                    RecordMessage record = new RecordMessage();
+                    record.Init(testAccount);
+                    x = new System.Xml.Serialization.XmlSerializer(record.GetType());
+                    writer = new StringWriter();
+                    x.Serialize(writer, record);
+
+                    SendMessage(mdsClient, "LapScore.MessageService.Listener", writer.ToString(), MDS.Communication.Messages.MessageTransmitRules.NonPersistent);
+                    SendMessage(mdsClient, "LapScore.Server", writer.ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
+
                     _IsRecording = !_IsRecording;
+
                 }
                 else if ((keypress.KeyChar >= 48) && (keypress.KeyChar <= 58))
                 {
 
                     var carNumber = keypress.KeyChar - 48;
                     DateTime laptime = DateTime.UtcNow;
-                    LapRegistrationMessage newMessage = new LapRegistrationMessage(testAccount, "111111", carNumber, laptime);
+                    LapRegistrationMessage newMessage = new LapRegistrationMessage();
+                    newMessage.Init(testAccount, "111111", carNumber, laptime);
                     SendMessage(mdsClient, "LapScore.MessageService.Listener", newMessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.NonPersistent);
                     SendMessage(mdsClient, "LapScore.Server", newMessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
 
