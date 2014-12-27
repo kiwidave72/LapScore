@@ -11,7 +11,7 @@ namespace LapScore.Core.Model
 
         public string Name {get;set;}
         public int Laps { get; set; }
-        public int Seconds { get; set; }
+        public decimal Seconds { get; set; }
 
 
     }

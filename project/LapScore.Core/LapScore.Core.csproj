@@ -45,6 +45,8 @@
     <Compile Include="Message\AbstractLapScoreMessage.cs" />
     <Compile Include="Interfaces\ILapRegistration.cs" />
     <Compile Include="Message\CarRegistrationMessage.cs" />
+    <Compile Include="Message\ClockMessage.cs" />
+    <Compile Include="Message\Payload\ClockMessagePayload.cs" />
     <Compile Include="Message\Payload\QuiteMessagePayload.cs" />
     <Compile Include="Message\QuitMessage.cs" />
     <Compile Include="Message\LapRegistrationMessage.cs" />

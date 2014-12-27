@@ -14,23 +14,23 @@ namespace LapScore.Core.Message.Payload
         
         private string _TransponderNumber = "";
         private int _CarNumber = 0;
-        private DateTime _DateTimeStampUTC;
+        private decimal _LapRegistrationElapsedTime;
 
 
 
 
-        public LapRegistrationPayload(string TransponderNumber,int CarNumber,DateTime DateTimeStampUTC)
+        public LapRegistrationPayload(string TransponderNumber, int CarNumber, decimal LapRegistrationElapsedTime)
         {
            _Name = "LapRegistrationPayload";
            _TransponderNumber = TransponderNumber;
            _CarNumber = CarNumber;
-           _DateTimeStampUTC = DateTimeStampUTC;
+           _LapRegistrationElapsedTime = LapRegistrationElapsedTime;
 
         }
 
         public string TransponderNumber { get { return _TransponderNumber; } }
         public int CarNumber { get { return _CarNumber; } }
-        public DateTime DateTimeStampUTC { get { return _DateTimeStampUTC; } }
+        public decimal LapRegistrationElapsedTime { get { return _LapRegistrationElapsedTime; } }
 
         #region IMessagePayload Members
 

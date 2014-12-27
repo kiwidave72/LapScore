@@ -18,7 +18,9 @@ namespace LapScore.Server
         public static Dictionary<int, Driver> drivers = new Dictionary<int, Driver>();
 
         private static bool KeepALive = true;
-        
+
+        public static DateTime raceStartTime = DateTime.MinValue;
+
         static void Main(string[] args)
         {
 
@@ -36,19 +38,14 @@ namespace LapScore.Server
             //Connect to DotNetMQ server
             mdsClient.Connect();
 
-            //Wait user to press enter to terminate application
-            //Console.WriteLine("Press enter to exit...");
-            //Console.ReadLine();
-
-            //Disconnect from DotNetMQ server
-            
-
+  
             while (KeepALive==true)
            {
 
            }
            mdsClient.Disconnect();
 
+        
 
 
         }
@@ -77,6 +74,12 @@ namespace LapScore.Server
                 KeepALive = false;
                 
             }
+            var clockMessage = doc.XPathSelectElement("//ClockMessage ");
+            if (clockMessage != null)
+            {
+                ProcessClockMessage(doc);
+
+            }
 
             var carRegistrationMessage = doc.XPathSelectElement("//CarRegistrationMessage");
             if (carRegistrationMessage != null)
@@ -94,68 +97,34 @@ namespace LapScore.Server
 
             }
 
-
-
-
-            //var carNumberNode  = doc.XPathSelectElement("//CarNumber");
-            
-            //if (carNumberNode == null)
-            //    return;
-            //var carNumber = Convert.ToInt16( carNumberNode.Value);
-            
-
-
-            //Driver foundDriver = null;
-            //foreach (KeyValuePair<int, Driver> d in drivers)
-            //{
-            //    if (d.Key == carNumber)
-            //    {
-            //        foundDriver = d.Value;
-            //    }
-            //}
-
-
-            //if(foundDriver == null)
-            //{
-            //    var driver = new Driver();
-            //    driver.Name="Car "+carNumber;
-            //    driver.Laps =1;
-            //    drivers.Add(carNumber,driver);
-
-            //}
-            //else
-            //{
-            //    foundDriver.Laps=foundDriver.Laps+1;
-            //}
-
-
             Console.Clear();
-           
 
+
+            Console.WriteLine("Elapsed {0}", elapsed);
             foreach (KeyValuePair<int, Driver> d in drivers)
             {
-                Console.WriteLine(string.Format("{0} {1}" , d.Value.Laps,d.Value.Name));
+                Console.WriteLine(string.Format("{0} {1} {2}" , d.Value.Laps,d.Value.Name , d.Value.Seconds ));
             }
 
         }
+        static decimal elapsed = 0;
 
+        static void ProcessClockMessage(XDocument doc)
+        {
+            elapsed =  Convert.ToDecimal(doc.XPathSelectElement("//Elapsed").Value);
+
+            raceStartTime =  DateTime.UtcNow.AddTicks(-Convert.ToInt32(elapsed));
+         }
         static void ProcessCarRegisitration(XDocument doc)
         {
-            //  <Payload>
-            //    <Name>{3}</Name>
-            //    <Car><Number>{4}</Number></Car>
-            //</Payload>
-
-
+ 
             var carNumberNode = doc.XPathSelectElement("//Number");
             var nameNode = doc.XPathSelectElement("//Name");
 
             if (carNumberNode == null)
                 return;
             var carNumber = Convert.ToInt16(carNumberNode.Value);
-
-
-
+ 
             Driver foundDriver = null;
             foreach (KeyValuePair<int, Driver> d in drivers)
             {
@@ -164,8 +133,6 @@ namespace LapScore.Server
                     foundDriver = d.Value;
                 }
             }
-
-
             if (foundDriver == null)
             {
                 var driver = new Driver();
@@ -183,6 +150,7 @@ namespace LapScore.Server
                 return;
             var carNumber = Convert.ToInt16(carNumberNode.Value);
 
+            var time = Convert.ToDecimal(doc.XPathSelectElement("//LapRegistrationElapsedTime").Value);
 
 
             Driver foundDriver = null;
@@ -198,6 +166,9 @@ namespace LapScore.Server
             if (foundDriver != null)
             {
                 foundDriver.Laps = foundDriver.Laps+1;
+                long elapsed = raceStartTime.Ticks -(long)time;
+
+                foundDriver.Seconds  = (decimal)TimeSpan.FromTicks(elapsed).TotalSeconds;
 
             }
         }

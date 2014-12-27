@@ -1,0 +1,6 @@
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.GUI\obj\Debug\Presentation\Resources\ImageResources.baml
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.GUI\obj\Debug\App.baml
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.GUI\obj\Debug\Presentation\Views\ShellWindow.g.cs
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.GUI\obj\Debug\App.g.cs
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.GUI\obj\Debug\LapScore.GUI_MarkupCompile.cache
+C:\Users\Dave\Documents\Git Work\LapScore\project\LapScore.GUI\obj\Debug\LapScore.GUI_MarkupCompile.lref

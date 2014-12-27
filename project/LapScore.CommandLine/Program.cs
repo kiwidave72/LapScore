@@ -11,6 +11,7 @@ using System.Xml.Serialization;
 using LapScore.Core.Model;
 using System.Xml;
 using System.Threading;
+using System.Xml.Linq;
 
 namespace LapScore.CommandLine
 {
@@ -18,24 +19,35 @@ namespace LapScore.CommandLine
     {
 
 
+        static bool _IsRecording = false;
+        static bool _IsClockStarted = false;
+        static DateTime _ClockStartTime = DateTime.MinValue;
+        static ClockMessage clock = new ClockMessage();
+        static MDSClient mdsClient = new MDSClient("LapScore.CommandLine");
+
 
         static void Main(string[] args)
         {
              Thread.Sleep(1000);
 
+             System.Timers.Timer UpdateClock = new System.Timers.Timer();
+             UpdateClock.Enabled = false;
+             UpdateClock.Interval = 500;
+             UpdateClock.Elapsed += new System.Timers.ElapsedEventHandler(UpdateClock_Elapsed);
+
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
 
-            bool _IsRecording = false;
+
             string _Title = @"Lap Score v0.1";
 
             //Create MDSClient object to connect to DotNetMQ
             //Name of this application: Application1
-            var mdsClient = new MDSClient("LapScore.CommandLine");
             //Connect to DotNetMQ server
             mdsClient.Connect();
             Guid testAccount = Guid.NewGuid();
 
+            clock.Init(testAccount);
 
 
             while (true)
@@ -62,7 +74,10 @@ namespace LapScore.CommandLine
                 Console.WriteLine("Commands are.......");
                 Console.WriteLine("Press (R) to record.");
                 Console.WriteLine("Press (Q) to quite.");
+                Console.WriteLine("Press (space) to start race , twice to reset.");
                 Console.WriteLine("Press (0-9) for car numbers.");
+
+                var xmlSave = new XmlDocument();
 
 
                 Car car = new Car
@@ -82,6 +97,7 @@ namespace LapScore.CommandLine
                 StringWriter writer = new StringWriter();
                 x.Serialize(writer , carmessage);
 
+ 
                 SendMessage(mdsClient, "LapScore.MessageService.Listener", carmessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.NonPersistent);
                 SendMessage(mdsClient, "LapScore.Server", carmessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
 
@@ -138,13 +154,28 @@ namespace LapScore.CommandLine
                     _IsRecording = !_IsRecording;
 
                 }
+                else if (keypress.Key == ConsoleKey.Spacebar)
+                {
+
+                    if (_IsClockStarted == false)
+                    {
+                        _ClockStartTime = DateTime.UtcNow;
+                        clock.Payload.Loop = 0;
+                        clock.Payload.Elapsed = 0;
+                        clock.Payload.Remaining = 5000;
+                    }
+
+
+                    UpdateClock.Enabled  = _IsClockStarted = !_IsClockStarted;
+
+                }
                 else if ((keypress.KeyChar >= 48) && (keypress.KeyChar <= 58))
                 {
 
                     var carNumber = keypress.KeyChar - 48;
-                    DateTime laptime = DateTime.UtcNow;
+                    
                     LapRegistrationMessage newMessage = new LapRegistrationMessage();
-                    newMessage.Init(testAccount, "111111", carNumber, laptime);
+                    newMessage.Init(testAccount, "111111", carNumber, DateTime.UtcNow.Ticks - _ClockStartTime.Ticks);
                     SendMessage(mdsClient, "LapScore.MessageService.Listener", newMessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.NonPersistent);
                     SendMessage(mdsClient, "LapScore.Server", newMessage.AsXml().ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
 
@@ -161,6 +192,19 @@ namespace LapScore.CommandLine
             //Disconnect from DotNetMQ server
             mdsClient.Disconnect(); 
            
+        }
+
+        static void UpdateClock_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            clock.Payload.Elapsed = DateTime.UtcNow.Ticks - _ClockStartTime.Ticks;
+            clock.Payload.Remaining = 5000 - (DateTime.UtcNow.Ticks - _ClockStartTime.Ticks);
+
+            System.Xml.Serialization.XmlSerializer x  = new System.Xml.Serialization.XmlSerializer(clock.GetType());
+            StringWriter writer = new StringWriter();
+            x.Serialize(writer, clock);
+
+            SendMessage(mdsClient, "LapScore.MessageService.Listener", writer.ToString(), MDS.Communication.Messages.MessageTransmitRules.NonPersistent);
+            SendMessage(mdsClient, "LapScore.Server", writer.ToString(), MDS.Communication.Messages.MessageTransmitRules.StoreAndForward);
         }
 
         private static void SendMessage(MDSClient mdsClient,string DestinationApplicationName, string newMessage,MDS.Communication.Messages.MessageTransmitRules rules)

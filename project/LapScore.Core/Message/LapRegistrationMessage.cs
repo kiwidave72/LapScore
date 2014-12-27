@@ -9,11 +9,11 @@ namespace LapScore.Core.Message
 {
     public sealed class LapRegistrationMessage : AbstractLapScoreMessage<LapRegistrationPayload> 
     {
-        public void Init(Guid TrustedAccount,string TransponderNumber,int CarNumber,DateTime DateTimeStampUTC)
+        public void Init(Guid TrustedAccount, string TransponderNumber, int CarNumber, decimal LapRegistrationElapsedTime)
         {
             base.Init(TrustedAccount);
 
-            this.Payload  = new LapRegistrationPayload(TransponderNumber,CarNumber,DateTimeStampUTC);
+            this.Payload = new LapRegistrationPayload(TransponderNumber, CarNumber, LapRegistrationElapsedTime);
         }
         public  XDocument AsXml()
         {
@@ -26,15 +26,17 @@ namespace LapScore.Core.Message
             <Payload>
             <TransponderNumber>{3}</TransponderNumber>
             <CarNumber>{4}</CarNumber>
+            <LapRegistrationElapsedTime>{5}</LapRegistrationElapsedTime>
             </Payload>
             </LapRegistrationMessage>
             ";
             return XDocument.Parse(string.Format(xml,
                     this.ID,
                     this.DateTimeStampUTC,
-                    this.Payload.DateTimeStampUTC.Ticks ,
+                    this.DateTimeStampUTC.Ticks,                    
                     this.Payload.TransponderNumber,
-                    this.Payload.CarNumber
+                    this.Payload.CarNumber,
+                    this.Payload.LapRegistrationElapsedTime
                     ));
         }
 
